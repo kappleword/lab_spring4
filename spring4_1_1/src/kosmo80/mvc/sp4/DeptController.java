@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
-public class Deptcontroller extends MultiActionController {
+public class DeptController extends MultiActionController {
 	public ModelAndView deptList(HttpServletRequest req, HttpServletResponse res) {
 		ModelAndView mav = new ModelAndView();
 		return mav;
