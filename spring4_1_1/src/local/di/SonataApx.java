@@ -31,6 +31,12 @@ public class SonataApx {
 		System.out.println(yourCar.toString());
 		//System.out.println(himCar.speed);
 		System.out.println("yourCar의 현재 속도는 "+yourCar.getSpeed()+"입니다.");
+		
+		Sonata SuperCar = null;
+		yourCar = (Sonata)context.getBean("SuperCar");
+		System.out.println(SuperCar.toString());
+		//System.out.println(himCar.speed);
+		System.out.println("yourCar의 현재 속도는 "+SuperCar.getSpeed()+"입니다.");
 	}
 
 }
