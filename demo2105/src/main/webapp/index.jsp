@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>index.jsp</title>
 </head>
 <body>
-
+테스트 페이지 임당
 </body>
 </html>
