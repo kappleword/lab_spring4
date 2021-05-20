@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean name="myDuck" class="design.duck.MallardDuck" scope="singleton"/>
+	<bean name="himDuck" class="design.duck.WoodDuck" scope="singleton"/>
+	<bean name="herDuck" class="design.duck.RubberDuck" scope="singleton"/>
+</beans>
