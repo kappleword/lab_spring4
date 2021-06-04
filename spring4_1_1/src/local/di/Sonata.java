@@ -4,6 +4,24 @@ package local.di;
 
 //@Scope("singletone")
 public class Sonata {
+	public String getCarColor() {
+		return carColor;
+	}
+	public void setCarColor(String carColor) {
+		this.carColor = carColor;
+	}
+	public int getWheelNum() {
+		return wheelNum;
+	}
+	public void setWheelNum(int wheelNum) {
+		this.wheelNum = wheelNum;
+	}
+	public int getSpeed() {
+		return speed;
+	}
+	public void setSpeed(int speed) {
+		this.speed = speed;
+	}
 	private String carColor = null;
 	private int wheelNum = 0;
 	private int speed = 0;
@@ -12,32 +30,15 @@ public class Sonata {
 		this.carColor = carColor;
 		this.wheelNum = wheelNum;
 	}
-	public Sonata(String carColor, int wheelNum, int speed) {
+	public Sonata(String carColor
+			    , int wheelNum
+			    , int speed) {
 		this.carColor = carColor;
 		this.wheelNum = wheelNum;
 		this.speed = speed;
-	}
+	}	
 	@Override
 	public String toString() {
-		return "자동차정보출력하기";
-	}
-
-	public int getSpeed() {
-		return speed;
-	}
-	public void setSpeed(int speed) {
-		this.speed = speed;
-	}
-	public int getWheelNum() {
-		return wheelNum;
-	}
-	public void setWheelNum(int wheelNum) {
-		this.wheelNum = wheelNum;
-	}
-	public String getCarColor() {
-		return carColor;
-	}
-	public void setCarColor(String carColor) {
-		this.carColor = carColor;
+		return "자동차 정보 출력하기";
 	}
 }

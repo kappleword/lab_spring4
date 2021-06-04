@@ -13,7 +13,7 @@
 		size = empList.size();
 	}
 	out.print("size : "+size);
-%>
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +21,6 @@
 <title>사원 목록 페이지</title>
 </head>
 <body>
-사원 목록 페이지입니다.
+사원 목록 페이지 입니다.
 </body>
 </html>

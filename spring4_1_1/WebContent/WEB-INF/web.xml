@@ -3,13 +3,13 @@
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	<context-param>
 		<param-name>log4jConfigLocation</param-name>
-		<param-value>/WEB-INF/classes/log4j.properties</param-value>
+		<param-value>/WEB-INF/classes/log4j.properties </param-value>
 	</context-param>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-		 /WEB-INF/spring-service.xml
-	    ,/WEB-INF/spring-data.xml
+			/WEB-INF/spring-service.xml
+		   ,/WEB-INF/spring-data.xml
 		</param-value>
 	</context-param>
 	
