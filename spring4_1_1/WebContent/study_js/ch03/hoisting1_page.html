@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script>
+  //마치 여기에 있다고 생각하면됨(호이스팅이 끌어올려주니까)
+</script>
+
+<body>
+  <script>
+    let count = 0;//var 사용x
+    myFnc();
+
+    function myFnc() {
+      count++;
+      document.write("hello" + count, "<br>");
+      //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+      document.write(`hello ${count} <br>`);//ES6에서 추가됨
+    }
+
+    myFnc();
+
+    //hoisting이 안일어남
+    const theFnc = function () {
+      count++;
+      //document.write("bye" + count, "<br>");
+      document.write(`bye ${count} <br>`);
+    }
+    theFnc();
+  </script>
+</body>
+
+</html>

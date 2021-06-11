@@ -6,8 +6,6 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.mybatis.spring.SqlSessionTemplate;
 
-import com.vo.BoardMVO;
-
 public class Board41MDao {
 	Logger logger = Logger.getLogger(Board41MDao.class);
 	private SqlSessionTemplate sqlSessionTemplate = null;
@@ -29,5 +27,16 @@ public class Board41MDao {
 		*/
 		return boardList;
 	}
-	
+	public int boardMInsert(Map<String, Object> pmap) {
+		logger.info("boardMInsert 호출 성공");
+		int result = 0;
+		result = 1;
+		sqlSessionTemplate.insert("boardMInsert",pmap);
+		return result;
+	}
+	public void bmStepUpdate (Map<String, Object> pmap) {
+		logger.info("bmStep 호출 성공");
+		sqlSessionTemplate.insert("bmStepUpdate",pmap);
+	}
+
 }
