@@ -27,7 +27,7 @@ public class HashMapBinder {
 		this.request = request;
 		realFolder = "D:\\portfolio_pjh\\lab_spring4\\spring4_1_8\\WebContent\\pds";
 	}
-	public void multiBind(Map<String,Object> target) {
+	public void multiBind(Map<String,Object> target) {//첨부파일처리용
 		target.clear();
 		try {
 			multi = new MultipartRequest(request, realFolder, maxSize, encType, new DefaultFileRenamePolicy());

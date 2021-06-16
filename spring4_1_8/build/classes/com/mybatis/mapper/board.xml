@@ -55,11 +55,11 @@
 		UPDATE board_master2019
 		   SET bm_step = bm_step + 1
 		 WHERE bm_group = #{bm_group}
-		 <![CDATA[ and bm_step > #{bm_step ]]>
+		 <![CDATA[ and bm_step > #{bm_step} ]]>
 	</update>
 	<select id="getBoardList" parameterType="map" resultType="map">
-		 SELECT bm.bm_no, bm.bm_title, bm.bm_date, bs.bs_file, bm.bm_hit
-		       ,bm.bm_group, bm.bm_pos, bm.bm_step, bm.bm_email, bm.bm_pw
+		 SELECT bm.bm_no, bm.bm_title, bm.bm_date, NVL(bs.bs_file,'없음') bs_file, bm.bm_hit
+		       ,bm.bm_group, bm.bm_pos, bm.bm_step, NVL(bm.bm_email,'없음') bm_email, bm.bm_pw
 		       ,bm.bm_writer, bm.bm_content
 		  FROM board_master2019 bm
 		      ,board_sub2019 bs
