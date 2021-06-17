@@ -84,6 +84,19 @@ public class Board41Controller extends MultiActionController {
 		return mav;
 	}
 
+	public ModelAndView updateForm(HttpServletRequest req, HttpServletResponse res)
+								throws Exception {
+		logger.info("updateForm 호출 성공");
+		HashMapBinder		hmb		= new HashMapBinder(req);
+		Map<String, Object>	target	= new HashMap<>();
+		hmb.bindPost(target);// bm_no값 담음.
+		logger.info("bm_no : " + target.get("bm_no"));
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("board/updateForm");
+		mav.addObject("target", target);
+		return mav;
+	}
+
 	// json으로 내보내준다. - @RestController:String, @Controller:void, ModelAndView,
 	// String
 	// @RestController
