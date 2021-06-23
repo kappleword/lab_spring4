@@ -18,14 +18,10 @@ public class RestStep1Controller {
 	//localhost:7001/step1/get/10
 	@GetMapping("/get/{id}")
 	public String get(@PathVariable Long id, @RequestParam String name) {
-		System.out.println("get call success!!!");
-		System.out.println("id : "+id+", name : "+name);
 		return "id : "+id+", name : "+name;
 	}
 	@PostMapping("/post")
 	public MemberVO post(@RequestBody MemberVO mvo) {
-		System.out.println("post call success!!!");
-		System.out.println("MemberVO : "+mvo);
 		return mvo;
 	}
 	@DeleteMapping("/delete")
