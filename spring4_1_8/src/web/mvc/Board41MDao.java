@@ -56,4 +56,16 @@ public class Board41MDao {
 		result = sqlSessionTemplate.selectOne("getBmNo");		
 		return result;
 	}
+	public int boardMUpdate(Map<String, Object> pmap) {
+		logger.info("boardMUpdate 호출 성공");
+		int result = 0 ;
+		result = sqlSessionTemplate.update("boardMUpdate",pmap);
+		return result;
+	}
+	public int boardMDelete(Map<String, Object> pmap) {
+		logger.info("boardMDelete 호출 성공");
+		int result = 0;
+		result = sqlSessionTemplate.delete("boardMDelete",pmap);	
+		return result;
+	}
 }
