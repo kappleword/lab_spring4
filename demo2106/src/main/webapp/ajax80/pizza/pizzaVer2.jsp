@@ -11,26 +11,27 @@
     	//alert("orderPizza 호출 성공");
   		let paper = $("#paper").val();//주문내용을 읽기 
   		//alert("paper"+paper+"여기");
-  		//textarea, input text 모두 디폴트가 빈문자열 null 혹은 undefine
+  		//textarea, input text 모두 디폴트가 빈문자열, 비교할때 null 혹은 undefine
     	if(paper !=""){
     		alert("주문내용 입력 성공");
-	    	$("#f_order").submit();//폼 전송이 일어난다. -ajax제외	
+	    	$("#f_order").submit();//폼 전송이 일어난다. -ajax 기능없이 구현한부분	
     	}else{
     		alert("주문내용 입력 안함");
     		 $("#paper").focus();//커서를 이동해 두어서 바로 입력받을 수 있도록 한다.
     	}
     }
-    //ajax 적용 구간
+    
+    //ajax 적용 함수 구간
   	function getCustomerInfo(){
     	//사용자가 입력한 전화번호를 담기
   		let user_tel = $("#mem_tel").val();
   		//console.log("사용자 전번 : "+user_tel);
   		//fetch API
-    	$.ajax({//ajax함수- 여러가지 속성 type, url, dataType, success, error
+    	$.ajax({//ajax함수- 여러가지 속성이 있음 : type(get or post), url, dataType, success, error
   		  type:"get",
   		  url: "jsonGetCustomerList",
   		  dataType:"json",
-	          success:function(data){//data-  분석- {id:test} [{id:test}] {"id":"test"},.....유사품 주의할것.
+	          success:function(data){//data- 분석- {id:test} [{id:test}] {"id":"test"},.....유사품 주의할것.
 	        	  let result = JSON.stringify(data);
 	        	  console.log(result);
 	        	  //배열로 커스터마이징

@@ -18,21 +18,21 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-aop'
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-jdbc', version: '2.4.7'
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-log4j2
-	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2', version: '2.4.7'
 	// https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter
     implementation group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '2.1.4'
-	// https://mvnrepository.com/artifact/com.zaxxer/HikariCP
+    // https://mvnrepository.com/artifact/com.zaxxer/HikariCP
     implementation group: 'com.zaxxer', name: 'HikariCP', version: '3.4.5'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 //	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 // https://mvnrepository.com/artifact/com.google.code.gson/gson
-	implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.7'
+	implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.7'	
+	//complie fileTree(dir: '/src/main/webapp/WEB-INF/lib', include:['*.jar'])
+	compile fileTree(dir: '/src/main/webapp/WEB-INF/lib', includes: ['*.jar'])
 	compile('org.apache.tomcat.embed:tomcat-embed-jasper')
-	compile('javax.servlet:jstl:1.2')
+	compile('javax.servlet:jstl:1.2')	
 }
 
 test {
