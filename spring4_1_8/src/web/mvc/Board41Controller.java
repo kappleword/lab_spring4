@@ -1,5 +1,6 @@
 package web.mvc;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -165,5 +167,18 @@ public class Board41Controller extends MultiActionController {
 								res.sendRedirect("등록실패 페이지 이동처리");
 							}
 						}
+	public void getStudentInfo(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+		HashMapBinder		hmb		= new HashMapBinder(req);
+		Map<String, Object>	pMap	= new HashMap<String, Object>();
+		res.setContentType("text/plain;charset=utf-8");
 
+		hmb.bind(pMap);
+		List<Map<String, Object>> studentList = null;
+		studentList = boardLogic.getStudentInfo(pMap);
+		logger.info(pMap);
+		logger.info(studentList);
+		RequestDispatcher dispatcher = req.getRequestDispatcher("../index.jsp");
+		req.setAttribute("studentList", studentList);
+		dispatcher.forward(req, res);
+	}
 }

@@ -90,4 +90,8 @@
 	<select id="test" parameterType="map" resultType="string"> 
 		select TO_CHAR(sysdate, 'YYYY-MM-DD') from dual
 	</select> 
+	<select id="getStudentInfo" parameterType="map" resultType="map">
+		 SELECT STUDENT_NAME, STUDENT_NUMBER
+		  FROM student
+	</select>
 </mapper>

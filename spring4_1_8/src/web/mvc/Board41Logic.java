@@ -101,4 +101,10 @@ public class Board41Logic {
 		return result;
 	}////////////////////////////end of boardDelete
 
+	public List<Map<String, Object>> getStudentInfo(Map<String, Object> pMap) {
+		List<Map<String, Object>> studentList = null;
+		studentList = boardMDao.getStudentInfo(pMap);
+		return studentList;
+	}
+
 }

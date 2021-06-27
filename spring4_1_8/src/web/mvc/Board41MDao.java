@@ -68,4 +68,13 @@ public class Board41MDao {
 		result = sqlSessionTemplate.delete("boardMDelete",pmap);	
 		return result;
 	}
+	
+	public List<Map<String, Object>> getStudentInfo(Map<String, Object> pMap) {
+		List<Map<String, Object>> studentList = null;
+		sqlSessionTemplate.selectList("getCourse", pMap);
+		logger.info(pMap);
+		studentList = (List<Map<String, Object>>) pMap.get("cursor");
+		logger.info(studentList);
+		return studentList;
+	}
 }
