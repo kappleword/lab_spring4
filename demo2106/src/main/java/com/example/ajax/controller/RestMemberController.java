@@ -2,7 +2,9 @@ package com.example.ajax.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
@@ -31,12 +33,25 @@ public class RestMemberController {
 	}
 	@PostMapping("/postLogin")
 	public String postLogin(HttpServletRequest req
-			, @RequestBody Map<String,Object> pmap) {
+			, @RequestParam Map<String,Object> pmap) {
 		logger.info("postLogin");
 		HttpSession session = req.getSession();
 		String s_name = null;
 		s_name = memberLogic.login(pmap);
 		session.setAttribute("s_name2", s_name);
+		return s_name;
+	}
+	//쿠키로그인
+	@PostMapping("/cookieLogin")
+	public String cookieLogin(HttpServletResponse res
+			, @RequestParam Map<String,Object> pmap) {
+		logger.info("cookie4Login");
+		String s_name = null;
+		s_name = memberLogic.login(pmap);
+		Cookie cname = new Cookie("cname",s_name);
+		cname.setMaxAge(60*2);
+		cname.setPath("/");
+		res.addCookie(cname);
 		return s_name;
 	}
 }
