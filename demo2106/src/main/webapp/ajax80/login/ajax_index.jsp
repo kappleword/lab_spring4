@@ -15,8 +15,8 @@
     function loginAction(){
 		console.log("로그인 처리 하세요");
 		$.ajax({
-			url:"",
-			success:fuction(data){//@data-json, xml, html, text
+			url:"loginAccount.jsp",
+			success:function(data){//@data-json, xml, html, text
 				$("#loginForm").html(data);
 			},
 			error:function(e){//@param-XMLHttpRequest
@@ -28,8 +28,8 @@
 		console.log("로그아웃 처리 하세요");
 		$.ajax({
 			url:"logout.jsp",//session.invalidate():세션값을 모두 날림
-			success:fuction(data){//@data-json, xml, html, text
-				
+			success:function(data){//@data-json, xml, html, text
+				$("#loginForm").html(data);
 			},
 			error:function(e){//@param-XMLHttpRequest
 				

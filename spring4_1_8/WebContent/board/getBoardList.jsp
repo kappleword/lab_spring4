@@ -63,7 +63,7 @@ path.append("/");
 		<a href="#" class="easyui-linkbutton" iconCls="icon-cancel" plain="true">삭제</a>
 	</div>
 	<!--=========================== [[글쓰기 화면 시작]] =============================-->
-	<div id="dlg_ins" class="easyui-dialog" title="글쓰기" data-options="iconCls:'icon-save', closed:false, footer:'#ft_ins'"
+	<div id="dlg_ins" class="easyui-dialog" title="글쓰기" data-options="iconCls:'icon-save', closed:true, footer:'#ft_ins'"
 		style="width: 600px; height: 650px; padding: 10px">
 		<form id="board_ins" method="post" enctype="multipart/form-data" action="boardInsert.sp4">
 			<input type="hidden" name="bm_no" value="0"> <input type="hidden" name="bm_group" value="0"> <input type="hidden" name="bm_pos"

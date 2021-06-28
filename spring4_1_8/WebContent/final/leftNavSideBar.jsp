@@ -25,7 +25,7 @@
 		</a>
 			<div id="scroll2" class="collapse ">
 				<ul class="collapse__menu">
-					<a id="sideButton_2_1" href="getStudentInfo.sp4" class="nav-link text-blue">신상정보조회</a>
+					<a id="sideButton_2_1" href="#" class="nav-link text-blue">신상정보조회</a>
 					<a id="sideButton_2_2" href="#" class="nav-link text-blue">수강목록조회</a>
 					<a id="sideButton_2_3" href="#" class="nav-link text-blue">수강성적조회</a>
 					<a id="sideButton_2_4" href="#" class="nav-link text-blue">학적변동조회</a>

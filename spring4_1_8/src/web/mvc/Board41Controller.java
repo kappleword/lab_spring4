@@ -167,18 +167,21 @@ public class Board41Controller extends MultiActionController {
 								res.sendRedirect("등록실패 페이지 이동처리");
 							}
 						}
-	public void getStudentInfo(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
+	public ModelAndView getStudentInfo(HttpServletRequest req, HttpServletResponse res)
+								throws Exception {
+		logger.info("getStudentInfo 호출 성공");
 		HashMapBinder		hmb		= new HashMapBinder(req);
-		Map<String, Object>	pMap	= new HashMap<String, Object>();
-		res.setContentType("text/plain;charset=utf-8");
-
-		hmb.bind(pMap);
-		List<Map<String, Object>> studentList = null;
-		studentList = boardLogic.getStudentInfo(pMap);
-		logger.info(pMap);
-		logger.info(studentList);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("../index.jsp");
-		req.setAttribute("studentList", studentList);
-		dispatcher.forward(req, res);
+		Map<String, Object>	target	= new HashMap<>();
+		hmb.bind(target);
+		target.put("gubun", "");
+		List<Map<String, Object>> boardList = null;
+		boardList = boardLogic.getStudentInfo(target);// where bm_no=? and bm_title LIKE '%'||?||'%'
+		logger.info("boardList:" + boardList);//
+		ModelAndView mav = new ModelAndView();// 컨트롤러의 처리결과를 보여줄 뷰와 전달할 값을 저장할 용도로 쓰인다
+		mav.setViewName("final/");
+		mav.addObject("boardList", boardList);// 키와 value값을담아서 보내는 메소드
+		// RequestDispatcher view = req.getRequestDispatcher("getBoardList.jsp");
+		// view.forward(req, res);
+		return mav;
 	}
 }
