@@ -1,5 +1,7 @@
 package com.example.ajax.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -16,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.ajax.vo.MemberVO;
+import com.google.gson.Gson;
+
 @RestController
 @RequestMapping("/login")
 public class RestMemberController {
@@ -29,7 +34,14 @@ public class RestMemberController {
 		String s_name = null;
 		s_name = memberLogic.login(pmap);
 		session.setAttribute("s_name", s_name);
-		return s_name;
+		List<MemberVO> list = new ArrayList<>();
+		MemberVO mvo = new MemberVO();
+		mvo.setMem_name(s_name);
+		mvo.setMem_id(pmap.get("mem_id").toString());
+		list.add(mvo);
+		Gson g = new Gson();
+		String imsi = g.toJson(list);
+		return imsi;
 	}
 	@PostMapping("/postLogin")
 	public String postLogin(HttpServletRequest req
@@ -45,7 +57,7 @@ public class RestMemberController {
 	@PostMapping("/cookieLogin")
 	public String cookieLogin(HttpServletResponse res
 			, @RequestParam Map<String,Object> pmap) {
-		logger.info("cookie4Login");
+		logger.info("cookieLogin");
 		String s_name = null;
 		s_name = memberLogic.login(pmap);
 		Cookie cname = new Cookie("cname",s_name);
